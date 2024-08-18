@@ -25,8 +25,8 @@ body {
 }
 
 .container {
-    width: 400px;
-    height: 80vh;
+    width: 350px;
+    height: 500px;
     background-color: $blue-2;
     border-radius: 20px;
     box-shadow: 10px 10px 10px $shadow-dark;
@@ -89,14 +89,20 @@ body {
 
 .more-info-label {
     color: $white;
+    width: 50%;
+    margin-left: 1em;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        color:#FAC742
+    }
 }
 
 .more-info-container {
     flex: 1;
     background-color: $shadow-light;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-top: 1em;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
