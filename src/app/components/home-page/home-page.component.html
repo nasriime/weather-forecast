@@ -1,3 +1,10 @@
 @if (weatherData) {
-   <app-weather-card [weatherData]="weatherData"></app-weather-card>
+   <app-weather-card 
+      [max]="weatherData.main.temp_max" 
+      [min]="weatherData.main.temp_min" 
+      [humidity]="weatherData.main.humidity" 
+      [temp]="weatherData.main.temp" 
+      [wind]="weatherData.wind.speed" 
+      [name]="weatherData.name" >
+   </app-weather-card>
 }

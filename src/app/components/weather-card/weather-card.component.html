@@ -1,14 +1,14 @@
 <div class="weather-card-container">
     <div class="upper-data">
-      @if (weatherData.main.temp > 15) {
+      @if (temp! > 15) {
         <img src="/hot.jpg" alt="Hot weather image"/>
       }
-      @if (weatherData.main.temp <= 15) {
+      @if (temp! <= 15) {
         <img src="/cold.jpg" alt="Cold weather image"/>
       } 
       <div class="weather-data">
-        <div class="location">{{weatherData.name}}</div>
-        <div class="temperature">{{ weatherData.main.temp | number: '1.0-0'}}°C</div>
+        <div class="location">{{ name! }}</div>
+        <div class="temperature">{{ temp! | number: '1.0-0'}}°C</div>
       </div>
     </div>
     <div class="lower-data">
@@ -19,7 +19,7 @@
             <span>Min</span>
           </div>
           <div class="info-block-value">
-            {{ weatherData.main.temp_min | number: '1.0-0'}}°C
+            {{ min! | number: '1.0-0'}}°C
           </div>
         </div>
   
@@ -29,7 +29,7 @@
             <span>Max</span>
           </div>
           <div class="info-block-value">
-            {{ weatherData.main.temp_max | number: '1.0-0'}}°C
+            {{ max! | number: '1.0-0'}}°C
           </div>
         </div>
   
@@ -39,7 +39,7 @@
             <span>Humidity</span>
           </div>
           <div class="info-block-value">
-            {{ weatherData.main.humidity }}%
+            {{ humidity! }}%
           </div>
         </div>
   
@@ -49,7 +49,7 @@
             <span>Wind</span>
           </div>
           <div class="info-block-value">
-            {{ weatherData.wind.speed }} km/h
+            {{ wind! }} km/h
           </div>
         </div>
 

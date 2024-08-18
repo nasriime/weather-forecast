@@ -1,1 +1,16 @@
-<p>four-days works!</p>
+@if (multiDaysForecastList) {
+    <div class="four-days-container">
+        @for (dayForecast of multiDaysForecastList; track dayForecast.dt){
+            <div class="weather-card-wrapper">
+                <app-weather-card 
+                    [temp]="dayForecast?.main?.temp" 
+                    [max]="dayForecast?.main?.temp_max" 
+                    [min]="dayForecast?.main?.temp_min" 
+                    [humidity]="dayForecast?.main?.humidity" 
+                    [wind]="dayForecast?.wind?.speed" 
+                    [name]="multiDaysForecastData?.city?.name" >
+                </app-weather-card>
+            </div>
+        }
+    </div>
+}

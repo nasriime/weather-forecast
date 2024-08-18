@@ -10,5 +10,10 @@ import { DecimalPipe } from '@angular/common';
   styleUrl: './weather-card.component.scss'
 })
 export class WeatherCardComponent {
-  @Input() weatherData?: weatherData;
+  @Input() max?: number; 
+  @Input() min?: number;
+  @Input() humidity?: number;
+  @Input() temp?: number; 
+  @Input() wind?: number;
+  @Input() name?: string; 
 }
