@@ -20,7 +20,7 @@ export class WeatherService {
       .set('units', 'metric')
     });
   }
-  getMultiDaysForcast(lat: string, lon: string): Observable<multiDaysForcastData> {
+  getMultiDaysForcast(lat: number, lon: number): Observable<multiDaysForcastData> {
     return this.http.get<multiDaysForcastData>(`${environment.weatherApiBaseUrl}/forecast`,{
       params: new HttpParams()
       .set('lat', lat)
