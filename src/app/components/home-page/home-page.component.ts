@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.weatherService.getCurrentWeather('vienna').subscribe({
+    this.weatherService.getCurrentWeather(48.210033, 16.363449).subscribe({
       next: (data: weatherData) => {
         this.weatherData = data;
       }

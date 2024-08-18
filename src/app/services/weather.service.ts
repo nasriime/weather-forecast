@@ -12,10 +12,11 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrentWeather(cityName: string): Observable<weatherData> {
+  getCurrentWeather(lat: number, lon: number): Observable<weatherData> {
     return this.http.get<weatherData>(`${environment.weatherApiBaseUrl}/weather`,{
       params: new HttpParams()
-      .set('q', cityName)
+      .set('lat', lat)
+      .set('lon', lon)
       .set('appid', environment.weatherApiKey)
       .set('units', 'metric')
     });
