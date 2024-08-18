@@ -3,10 +3,11 @@ import { DecimalPipe } from '@angular/common';
 
 import { WeatherService } from '../../services/weather.service';
 import { weatherData } from '../../models/weather.model';
+import { WeatherCardComponent } from '../weather-card/weather-card.component';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, WeatherCardComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
