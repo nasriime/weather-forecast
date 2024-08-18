@@ -7,6 +7,10 @@
                     [max]="dayForecast?.main?.temp_max" 
                     [min]="dayForecast?.main?.temp_min" 
                     [humidity]="dayForecast?.main?.humidity" 
+                    [pressure]="dayForecast?.main?.pressure" 
+                    [seaLevel]="dayForecast?.main?.sea_level" 
+                    [clouds]="dayForecast?.clouds?.all" 
+                    [feelsLike]="dayForecast?.main?.feels_like" 
                     [wind]="dayForecast?.wind?.speed" 
                     [name]="multiDaysForecastData?.city?.name" >
                 </app-weather-card>

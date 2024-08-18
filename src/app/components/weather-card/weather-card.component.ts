@@ -15,5 +15,9 @@ export class WeatherCardComponent {
   @Input() humidity?: number;
   @Input() temp?: number; 
   @Input() wind?: number;
-  @Input() name?: string; 
+  @Input() name?: string;
+  @Input() pressure?: number;
+  @Input() seaLevel?: number;
+  @Input() clouds?: number;
+  @Input() feelsLike?: number;  
 }

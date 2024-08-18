@@ -53,6 +53,46 @@
           </div>
         </div>
 
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="/pressure.png" alt="">
+            <span>Pressure</span>
+          </div>
+          <div class="info-block-value">
+            {{ pressure! }} hPa
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="/feels_like.png" alt="">
+            <span>Feels like</span>
+          </div>
+          <div class="info-block-value">
+            {{ feelsLike! | number: '1.0-0'}}°C
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="/clouds.png" alt="">
+            <span>Clouds</span>
+          </div>
+          <div class="info-block-value">
+            {{ clouds! }} %
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="/sea_level.png" alt="">
+            <span>Sea level</span>
+          </div>
+          <div class="info-block-value">
+            {{ seaLevel! }} m
+          </div>
+        </div>
+
         <div class="more-info-label">More Information</div>
       </div>
     </div>
