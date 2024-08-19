@@ -13,14 +13,45 @@ import { WeatherCardComponent } from '../weather-card/weather-card.component';
 })
 export class HomePageComponent implements OnInit {
   weatherData?: weatherData;
+  countryName?: string = '';
+  locationDenied: boolean = false;
+  errorMsg?: string = '';
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.weatherService.getCurrentWeather(48.210033, 16.363449).subscribe({
+    this.getLocation();
+  }
+
+  getCurrentWeather(lat: number, lon: number) {
+     this.weatherService.getCurrentWeather(lat, lon).subscribe({
       next: (data: weatherData) => {
+        this.convertCountrryCodeToName(data.sys.country);
         this.weatherData = data;
       }
     });
   }
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {      
+        this.getCurrentWeather(position.coords.latitude, position.coords.longitude);
+      }, (error)=> {
+        const errors: { [key: number]: string } = {
+          [error.PERMISSION_DENIED]: 'User denied the request for Geolocation.',
+          [error.POSITION_UNAVAILABLE]: 'Location information is unavailable.',
+          [error.TIMEOUT]: 'The request to get user location timed out.',
+        }
+        if(error.code == error.PERMISSION_DENIED) {
+          this.locationDenied = true
+        }
+        this.errorMsg = errors[error.code];
+      })
+    }
+  } 
+
+  convertCountrryCodeToName(countryCode: string) {
+    let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
+    this.countryName = regionNames.of(countryCode);
+  }
+
 }

@@ -9,6 +9,6 @@
       [clouds]="weatherData.clouds.all" 
       [feelsLike]="weatherData.main.feels_like" 
       [wind]="weatherData.wind.speed" 
-      [name]="weatherData.name" >
+      [name]="weatherData.name + ', ' +  countryName" >
    </app-weather-card>
 }
