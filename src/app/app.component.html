@@ -1,7 +1,7 @@
 <div class="container">
     <nav>
-        <li><a routerLink="/">Current Weather</a></li>
-        <li><a routerLink="/four-days">Four Days Forecast</a></li>
+        <li><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="is-active">Current Weather</a></li>
+        <li><a routerLink="/four-days" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="is-active">Four Days Forecast</a></li>
     </nav>
     <router-outlet />
 </div>
