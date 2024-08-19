@@ -4,6 +4,7 @@ import { DecimalPipe } from '@angular/common';
 import { WeatherService } from '../../services/weather.service';
 import { weatherData } from '../../models/weather.model';
 import { WeatherCardComponent } from '../weather-card/weather-card.component';
+import { convertCountrryCodeToName } from '../../utils/index';
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -26,7 +27,7 @@ export class HomePageComponent implements OnInit {
   getCurrentWeather(lat: number, lon: number) {
      this.weatherService.getCurrentWeather(lat, lon).subscribe({
       next: (data: weatherData) => {
-        this.convertCountrryCodeToName(data.sys.country);
+        this.countryName = convertCountrryCodeToName(data.sys.country);
         this.weatherData = data;
       }
     });
@@ -48,10 +49,5 @@ export class HomePageComponent implements OnInit {
       })
     }
   } 
-
-  convertCountrryCodeToName(countryCode: string) {
-    let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
-    this.countryName = regionNames.of(countryCode);
-  }
 
 }
