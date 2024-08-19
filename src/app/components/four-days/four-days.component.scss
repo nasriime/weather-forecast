@@ -1,0 +1,12 @@
+.four-days-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .weather-card-wrapper{
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+}
