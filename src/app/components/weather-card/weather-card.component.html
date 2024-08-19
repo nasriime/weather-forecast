@@ -53,6 +53,8 @@
           </div>
         </div>
 
+
+      @if(moreInfo) {
         <div class="info-block">
           <div class="info-block-label">
             <img src="/pressure.png" alt="">
@@ -62,7 +64,7 @@
             {{ pressure! }} hPa
           </div>
         </div>
-
+  
         <div class="info-block">
           <div class="info-block-label">
             <img src="/feels_like.png" alt="">
@@ -72,7 +74,7 @@
             {{ feelsLike! | number: '1.0-0'}}°C
           </div>
         </div>
-
+        
         <div class="info-block">
           <div class="info-block-label">
             <img src="/clouds.png" alt="">
@@ -82,7 +84,7 @@
             {{ clouds! }} %
           </div>
         </div>
-
+  
         <div class="info-block">
           <div class="info-block-label">
             <img src="/sea_level.png" alt="">
@@ -92,8 +94,13 @@
             {{ seaLevel! }} m
           </div>
         </div>
+      }
 
-        <div class="more-info-label">More Information</div>
+        <div 
+          (click)="toggleMoreInfo()"
+           class="more-info-label">
+            {{ moreInfo ? 'Less Info' : 'More Info' }}
+        </div>
       </div>
     </div>
   </div>

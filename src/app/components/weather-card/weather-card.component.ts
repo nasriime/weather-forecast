@@ -10,6 +10,8 @@ import { DecimalPipe } from '@angular/common';
   styleUrl: './weather-card.component.scss'
 })
 export class WeatherCardComponent {
+  moreInfo: boolean = false;
+
   @Input() max?: number; 
   @Input() min?: number;
   @Input() humidity?: number;
@@ -20,4 +22,8 @@ export class WeatherCardComponent {
   @Input() seaLevel?: number;
   @Input() clouds?: number;
   @Input() feelsLike?: number;  
+
+  toggleMoreInfo() {
+    this.moreInfo = !this.moreInfo;
+  }
 }
