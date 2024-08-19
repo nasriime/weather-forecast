@@ -12,7 +12,7 @@
                     [clouds]="dayForecast?.clouds?.all" 
                     [feelsLike]="dayForecast?.main?.feels_like" 
                     [wind]="dayForecast?.wind?.speed" 
-                    [name]="multiDaysForecastData?.city?.name" >
+                    [name]="multiDaysForecastData?.city?.name + ', ' + countryName" >
                 </app-weather-card>
             </div>
         }
