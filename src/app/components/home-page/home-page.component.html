@@ -1,4 +1,4 @@
-@if (weatherData) {
+@if (weatherData && !locationDenied) {
    <app-weather-card 
       [max]="weatherData.main.temp_max" 
       [min]="weatherData.main.temp_min" 
@@ -11,4 +11,12 @@
       [wind]="weatherData.wind.speed" 
       [name]="weatherData.name + ', ' +  countryName" >
    </app-weather-card>
+} @else {
+   <div>Loading...</div>
+}
+
+@if (errorMsg) {
+  <div class="error-msg">
+    {{errorMsg}}
+  </div>
 }

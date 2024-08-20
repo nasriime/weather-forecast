@@ -49,9 +49,9 @@ export class FourDaysComponent implements OnInit {
         this.getMultiDaysForcast(position.coords.latitude, position.coords.longitude);
       }, (error)=> {
         const errors: { [key: number]: string } = {
-          [error.PERMISSION_DENIED]: 'User denied the request for Geolocation.',
-          [error.POSITION_UNAVAILABLE]: 'Location information is unavailable.',
-          [error.TIMEOUT]: 'The request to get user location timed out.',
+          [error.PERMISSION_DENIED]: 'Denied the request for Geolocation!',
+          [error.POSITION_UNAVAILABLE]: 'Location information is unavailable!',
+          [error.TIMEOUT]: 'The request to get your location timed out!',
         }
         if(error.code == error.PERMISSION_DENIED) {
           this.locationDenied = true
