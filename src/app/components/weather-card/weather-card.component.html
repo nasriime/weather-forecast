@@ -81,9 +81,11 @@
         </div>
       </div>
 
-      <div (click)="toggleMoreInfo()" class="more-info-label">
-        {{ moreInfo ? "Less Info" : "More Info" }}
-      </div>
+      @if (showMoreInfo) {
+        <div (click)="toggleMoreInfo()" class="more-info-label">
+          {{ moreInfo ? "Less Info" : "More Info" }}
+        </div>
+      }
     </div>
   </div>
 </div>

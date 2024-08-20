@@ -22,6 +22,7 @@ export class WeatherCardComponent {
   @Input() clouds?: number;
   @Input() feelsLike?: number;
   @Input() date?: string;
+  @Input() showMoreInfo: boolean = false;
 
   toggleMoreInfo() {
     this.moreInfo = !this.moreInfo;
