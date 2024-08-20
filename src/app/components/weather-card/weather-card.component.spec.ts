@@ -12,24 +12,29 @@ describe('WeatherCardComponent', () => {
       imports: [WeatherCardComponent],
       providers: [DecimalPipe],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(WeatherCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should display the correct weather image based on temperature', () => {
+  it('should display the hot weather image based on temperature', () => {
     component.temp = 20;
     fixture.detectChanges();
     const imageElement = fixture.debugElement.query(
       By.css('img')
     ).nativeElement;
+    
     expect(imageElement.src).toContain('/hot.jpg');
+  });
 
+  it('should display the cold weather image based on temperature', () => {
     component.temp = 10;
     fixture.detectChanges();
+    const imageElement = fixture.debugElement.query(
+      By.css('img')
+    ).nativeElement;
+
     expect(imageElement.src).toContain('/cold.jpg');
   });
 
