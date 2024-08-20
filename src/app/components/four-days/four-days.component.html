@@ -12,6 +12,7 @@
                     [clouds]="dayForecast?.clouds?.all" 
                     [feelsLike]="dayForecast?.main?.feels_like" 
                     [wind]="dayForecast?.wind?.speed" 
+                    [date]="dayForecast?.dt_txt?.slice(0, 10)"
                     [name]="multiDaysForecastData.city.name + ', ' + countryName" >
                 </app-weather-card>
             </div>
@@ -19,7 +20,7 @@
     </div>
 } 
 
-@if(!multiDaysForecastData && !locationDenied && !errorMsg) {
+@if (!multiDaysForecastData && !locationDenied && !errorMsg) {
     <div class="loading">Loading...</div>
  }
 
