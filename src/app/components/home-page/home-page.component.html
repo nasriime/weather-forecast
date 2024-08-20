@@ -1,24 +1,21 @@
 @if (weatherData) {
-   <app-weather-card 
-      [max]="weatherData.main.temp_max" 
-      [min]="weatherData.main.temp_min" 
-      [humidity]="weatherData.main.humidity" 
-      [temp]="weatherData.main.temp" 
-      [pressure]="weatherData.main.pressure" 
-      [seaLevel]="weatherData.main.sea_level" 
-      [clouds]="weatherData.clouds.all" 
-      [feelsLike]="weatherData.main.feels_like" 
-      [wind]="weatherData.wind.speed" 
-      [name]="weatherData.name + ', ' +  countryName" >
-   </app-weather-card>
-} 
-
-@if (!weatherData && !locationDenied && !errorMsg) {
-   <div class="loading">Loading...</div>
-}
-
-@if (errorMsg) {
-  <div class="error-msg">
-    {{errorMsg}}
-  </div>
+<app-weather-card
+  [max]="weatherData.main.temp_max"
+  [min]="weatherData.main.temp_min"
+  [humidity]="weatherData.main.humidity"
+  [temp]="weatherData.main.temp"
+  [pressure]="weatherData.main.pressure"
+  [seaLevel]="weatherData.main.sea_level"
+  [clouds]="weatherData.clouds.all"
+  [feelsLike]="weatherData.main.feels_like"
+  [wind]="weatherData.wind.speed"
+  [name]="weatherData.name + ', ' + countryName"
+>
+</app-weather-card>
+} @if (!weatherData && !locationDenied && !errorMsg) {
+<div class="loading">Loading...</div>
+} @if (errorMsg) {
+<div class="error-msg">
+  {{ errorMsg }}
+</div>
 }

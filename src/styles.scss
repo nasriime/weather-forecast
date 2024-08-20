@@ -1,30 +1,32 @@
-@import 'variables';
+@import "variables";
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
 }
 
 .container {
-    width: 100%;
-    min-height: 100vh;
-    background-color: $blue-1;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $blue-1;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .error-msg {
-    color: red;
+  color: $error;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .loading {
-    color: $white;
+  color: $white;
 }

@@ -6,28 +6,36 @@ import { multiDaysForcastData } from '../models/multiDaysForcast.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCurrentWeather(lat: number, lon: number): Observable<weatherData> {
-    return this.http.get<weatherData>(`${environment.weatherApiBaseUrl}/weather`,{
-      params: new HttpParams()
-      .set('lat', lat)
-      .set('lon', lon)
-      .set('appid', environment.weatherApiKey)
-      .set('units', 'metric')
-    });
+    return this.http.get<weatherData>(
+      `${environment.weatherApiBaseUrl}/weather`,
+      {
+        params: new HttpParams()
+          .set('lat', lat)
+          .set('lon', lon)
+          .set('appid', environment.weatherApiKey)
+          .set('units', 'metric'),
+      }
+    );
   }
-  getMultiDaysForcast(lat: number, lon: number): Observable<multiDaysForcastData> {
-    return this.http.get<multiDaysForcastData>(`${environment.weatherApiBaseUrl}/forecast`,{
-      params: new HttpParams()
-      .set('lat', lat)
-      .set('lon', lon)
-      .set('appid', environment.weatherApiKey)
-      .set('units', 'metric')
-    });
+  getMultiDaysForcast(
+    lat: number,
+    lon: number
+  ): Observable<multiDaysForcastData> {
+    return this.http.get<multiDaysForcastData>(
+      `${environment.weatherApiBaseUrl}/forecast`,
+      {
+        params: new HttpParams()
+          .set('lat', lat)
+          .set('lon', lon)
+          .set('appid', environment.weatherApiKey)
+          .set('units', 'metric'),
+      }
+    );
   }
 }
