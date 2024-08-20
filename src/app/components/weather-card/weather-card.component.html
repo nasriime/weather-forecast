@@ -13,89 +13,88 @@
       </div>
     </div>
     <div class="lower-data">
-      <div class="more-info-container">
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/min.png" alt="">
-            <span>Min</span>
+      <div class="more-info-container" >
+        <div class="info-blocks" [ngClass]="{'expanded': moreInfo }">
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/min.png" alt="">
+              <span>Min</span>
+            </div>
+            <div class="info-block-value">
+              {{ min! | number: '1.0-0'}}°C
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ min! | number: '1.0-0'}}°C
-          </div>
-        </div>
   
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/max.png" alt="">
-            <span>Max</span>
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/max.png" alt="">
+              <span>Max</span>
+            </div>
+            <div class="info-block-value">
+              {{ max! | number: '1.0-0'}}°C
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ max! | number: '1.0-0'}}°C
-          </div>
-        </div>
   
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/humidity.png" alt="">
-            <span>Humidity</span>
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/humidity.png" alt="">
+              <span>Humidity</span>
+            </div>
+            <div class="info-block-value">
+              {{ humidity! }}%
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ humidity! }}%
-          </div>
-        </div>
   
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/wind.png" alt="">
-            <span>Wind</span>
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/wind.png" alt="">
+              <span>Wind</span>
+            </div>
+            <div class="info-block-value">
+              {{ wind! }} km/h
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ wind! }} km/h
-          </div>
-        </div>
 
-
-      @if(moreInfo) {
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/pressure.png" alt="">
-            <span>Pressure</span>
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/pressure.png" alt="">
+              <span>Pressure</span>
+            </div>
+            <div class="info-block-value">
+              {{ pressure! }} hPa
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ pressure! }} hPa
-          </div>
-        </div>
   
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/feels_like.png" alt="">
-            <span>Feels like</span>
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/feels_like.png" alt="">
+              <span>Feels like</span>
+            </div>
+            <div class="info-block-value">
+              {{ feelsLike! | number: '1.0-0'}}°C
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ feelsLike! | number: '1.0-0'}}°C
-          </div>
-        </div>
         
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/clouds.png" alt="">
-            <span>Clouds</span>
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/clouds.png" alt="">
+              <span>Clouds</span>
+            </div>
+            <div class="info-block-value">
+              {{ clouds! }} %
+            </div>
           </div>
-          <div class="info-block-value">
-            {{ clouds! }} %
-          </div>
-        </div>
   
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="/sea_level.png" alt="">
-            <span>Sea level</span>
-          </div>
-          <div class="info-block-value">
-            {{ seaLevel! }} m
+          <div class="info-block">
+            <div class="info-block-label">
+              <img src="/sea_level.png" alt="">
+              <span>Sea level</span>
+            </div>
+            <div class="info-block-value">
+              {{ seaLevel! }} m
+            </div>
           </div>
         </div>
-      }
 
         <div 
           (click)="toggleMoreInfo()"
@@ -104,4 +103,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
