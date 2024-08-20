@@ -4,7 +4,7 @@ import { DecimalPipe } from '@angular/common';
 import { WeatherService } from '../../services/weather.service';
 import { weatherData } from '../../models/weather.model';
 import { WeatherCardComponent } from '../weather-card/weather-card.component';
-import { convertCountrryCodeToName, handleError } from '../../utils/index';
+import { convertCountrryCodeToName } from '../../utils/index';
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -36,7 +36,14 @@ export class HomePageComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {      
         this.getCurrentWeather(position.coords.latitude, position.coords.longitude);
-      }, (error: GeolocationPositionError)=> handleError(error, this.locationDenied, this.errorMsg));
+      }, (error: GeolocationPositionError)=> {
+        if(error.code == 1) {
+          this.locationDenied = true
+        }
+        this.errorMsg = error.message;
+      });
+    }  else { 
+      this.errorMsg = 'Geolocation is not supported by this browser.'
     }
   } 
 

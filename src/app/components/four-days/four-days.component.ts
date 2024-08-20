@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { multiDaysForcastData, List } from '../../models/multiDaysForcast.model';
 import { WeatherCardComponent } from '../weather-card/weather-card.component';
-import { convertCountrryCodeToName, handleError } from '../../utils/index';
+import { convertCountrryCodeToName } from '../../utils/index';
 
 @Component({
   selector: 'app-four-days',
@@ -47,7 +47,14 @@ export class FourDaysComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {      
         this.getMultiDaysForcast(position.coords.latitude, position.coords.longitude);
-      }, (error)=>  handleError(error, this.locationDenied, this.errorMsg))
+      }, (error: GeolocationPositionError)=> {
+        if(error.code == 1) {
+          this.locationDenied = true
+        }
+        this.errorMsg = error.message;
+      })
+    }  else { 
+      this.errorMsg = 'Geolocation is not supported by this browser.'
     }
   } 
 

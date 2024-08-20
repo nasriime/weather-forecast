@@ -1,4 +1,4 @@
-@if (multiDaysForecastData && !locationDenied) {
+@if (multiDaysForecastData) {
     <div class="four-days-container">
         @for (dayForecast of multiDaysForecastList; track dayForecast.dt){
             <div class="weather-card-wrapper">
@@ -17,9 +17,11 @@
             </div>
         }
     </div>
-} @else {
-    <div>Loading...</div>
-}
+} 
+
+@if(!multiDaysForecastData && !locationDenied && !errorMsg) {
+    <div class="loading">Loading...</div>
+ }
 
 @if (errorMsg) {
   <div class="error-msg">
