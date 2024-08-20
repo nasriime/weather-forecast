@@ -4,7 +4,7 @@ import { DecimalPipe } from '@angular/common';
 import { WeatherService } from '../../services/weather.service';
 import { weatherData } from '../../models/weather.model';
 import { WeatherCardComponent } from '../weather-card/weather-card.component';
-import { convertCountrryCodeToName } from '../../utils/index';
+import { convertCountrryCodeToName, handleError } from '../../utils/index';
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -36,17 +36,7 @@ export class HomePageComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {      
         this.getCurrentWeather(position.coords.latitude, position.coords.longitude);
-      }, (error)=> {
-        const errors: { [key: number]: string } = {
-          [error.PERMISSION_DENIED]: 'User denied the request for Geolocation.',
-          [error.POSITION_UNAVAILABLE]: 'Location information is unavailable.',
-          [error.TIMEOUT]: 'The request to get user location timed out.',
-        }
-        if(error.code == error.PERMISSION_DENIED) {
-          this.locationDenied = true
-        }
-        this.errorMsg = errors[error.code];
-      })
+      }, (error: GeolocationPositionError)=> handleError(error, this.locationDenied, this.errorMsg));
     }
   } 
 
